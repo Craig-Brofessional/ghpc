@@ -1,11 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './output.css';
+import { PushupsHome } from './pushups/pushups-home';
+
+{/* <link href="./output.css" rel="stylesheet"></link> */}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,7 +22,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      { <PushupsHome />}
     </div>
   );
 }
