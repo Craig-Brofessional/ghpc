@@ -6,9 +6,14 @@ function PushupsHome() {
     const buttonClass = "border-2 rounded-2xl font-bold p-2 w-48";
 
     const getBalance = async () => {
-        const b = await PushupApi.getPushupsBalance();
+        const b = await PushupApi.getBalance(1);
         const b_formatted = b ? b.toString() : null;
         setBalance(b_formatted);
+    }
+
+    const increment = async (amount: number) => {
+        const newBalance = await PushupApi.incrementBalance(1, amount);
+        setBalance(newBalance);
     }
 
     useEffect(() => {
@@ -24,7 +29,7 @@ function PushupsHome() {
                     (<div>Loading</div>)}
             </div>
             <div className="space-x-4 flex flex-row items-center justify-center">
-                <div className={buttonClass}>
+                <div className={buttonClass} onClick={() => increment(10)}>
                     <div>Phone in Pocket</div>
                     <div>+10</div>
                 </div>

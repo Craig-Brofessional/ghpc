@@ -1,25 +1,39 @@
 import apiClient from "../framework/apiClient";
 
 export class PushupApi {
-    // static getPushupsBalance = () => {
-    //     console.log('reached PushupApi.getPushupsBalance()');
-    //     return 40;
-    // }
 
-    static getPushupsBalance = async () => {
-        console.log('reached PushupApi.getPushupsBalance()');
-        const request = apiClient.get('balance/');
+    static getBalance = async (user_id: number) => {
+        console.log('reached PushupApi.getBalance()');
+        const request = apiClient.get(`ghpc/pushups/${user_id}/`);
 
         try {
             console.log('request: ', request);
             const response = await request;
             console.log('response: ', response);
-            const balance = response.data;
+            const balance = response.data.balance;
             console.log('balance: ', balance);
-            return balance
+            return balance;
         }
         catch (ex) {
-            console.log('getPushupsBalance ex: ', ex);
+            console.log('getBalance ex: ', ex);
+            return null;
+        }
+    }
+
+    static incrementBalance = async (user_id: number, amount: number) => {
+        console.log('reached PushupApi.incrementBalance()');
+        const request = apiClient.post(`ghpc/pushups/${user_id}/`, { 'amount': amount});
+
+        try {
+            console.log('request: ', request);
+            const response = await request;
+            console.log('response: ', response);
+            const balance = response.data.balance;
+            console.log('balance: ', balance);
+            return balance;
+        }
+        catch (ex) {
+            console.log('incrementBalance ex: ', ex);
             return null;
         }
     }
