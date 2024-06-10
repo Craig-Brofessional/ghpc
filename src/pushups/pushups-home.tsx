@@ -1,15 +1,27 @@
+import { useEffect, useState } from "react";
+import { PushupApi } from "../api/pushupApi";
 
 function PushupsHome() {
-
+    const [balance, setBalance] = useState<string|null>(null);
     const buttonClass = "border-2 rounded-2xl font-bold p-2 w-48";
-    const balance = 40;
+
+    const getBalance = async () => {
+        const b = await PushupApi.getPushupsBalance();
+        const b_formatted = b ? b.toString() : null;
+        setBalance(b_formatted);
+    }
+
+    useEffect(() => {
+        getBalance();
+    }, []);
 
     return <>
         <img src="/GHPC-logo.png" className="mx-auto justify-self-center"></img>
         <div className="space-y-6 my-6">
             <div className="flex-col items-center justify-center">
                 <div>Balance</div>
-                <div>{balance}</div>
+                {balance ? (<div>{balance}</div>) :
+                    (<div>Loading</div>)}
             </div>
             <div className="space-x-4 flex flex-row items-center justify-center">
                 <div className={buttonClass}>
