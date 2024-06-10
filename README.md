@@ -6,7 +6,8 @@ Uses:
 - Add x number of pushups to balance from bet, etc.
 - Mark x number of pushups as completed (subtract from balance)
 
-cd C:\Users\craig\Documents\Software\ghpc
+cd ~/Repos/ghpc
+npm install
 npm start
 
 npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
