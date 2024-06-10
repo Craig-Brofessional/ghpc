@@ -1,4 +1,3 @@
-import { ApiBase } from "../framework/apiBase";
 import apiClient from "../framework/apiClient";
 
 export class PushupApi {
