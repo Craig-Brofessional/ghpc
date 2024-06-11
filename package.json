@@ -18,9 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx tailwindcss -i ./src/index.css -o ./src/output.css && react-scripts start",
+    "start": "react-scripts start",
     "dev": "npx tailwindcss -i ./src/index.css -o ./src/output.css & react-scripts start",
-    "build": "react-scripts build",
+    "build": "npx tailwindcss -i ./src/index.css -o ./src/output.css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "stop": "taskkill -F -IM node.exe & npx kill-port 3000"
