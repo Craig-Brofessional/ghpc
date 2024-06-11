@@ -8,6 +8,6 @@ Uses:
 
 cd ~/Repos/ghpc
 npm install
-npm start
+npm run dev
 
 npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
