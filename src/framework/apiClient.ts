@@ -1,12 +1,7 @@
 import axios from 'axios';
+import { ApiConfig } from './apiConfig';
 
-const apiClient = axios.create({
-    baseURL: "http://localhost:5001/",
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-});
+const apiClient = axios.create(ApiConfig);
 
 apiClient.interceptors.response.use(
     function (response) {
