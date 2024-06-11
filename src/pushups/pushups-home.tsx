@@ -7,7 +7,7 @@ function PushupsHome() {
 
     const getBalance = async () => {
         const b = await PushupApi.getBalance(1);
-        const b_formatted = b ? b.toString() : null;
+        const b_formatted = b !== null && b !== undefined ? b.toString() : null;
         setBalance(b_formatted);
     }
 
